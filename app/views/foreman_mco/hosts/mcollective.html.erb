@@ -1,0 +1,6 @@
+<% unless SmartProxy.mcollective_proxies.count == 0 %>
+<%= select_f f, :mcollective_proxy_id, SmartProxy.mcollective_proxies, :id, :name,
+      { :include_blank => true},
+      { :label => _("MCollective server"),
+        :help_inline => _("Use this MCollective proxy to handle remote task execution") } %>
+<% end >
