@@ -1,15 +1,8 @@
-function toggle_actions() {
-  var dropdown = $("#submit_multiple a");
-  dropdown.removeClass("disabled hide");
-  dropdown.removeAttr('disabled');
-}
-
-// updates the form URL based on the action selection
 $(function() {
   $('#submit_multiple a').click(function(){
-    if (!$(this).hasClass('mco-action') && ($.foremanSelectedHosts.length == 0 || $(this).hasClass('dropdown-toggle'))) { return false }
+    if ($(this).hasClass('dropdown-toggle')) { return false }
     var title = $(this).attr('data-original-title');
-    var url = $(this).attr('href') + "?" + $.param({host_ids: $.foremanSelectedHosts});
+    var url = $(this).attr('href')
     $('#confirmation-modal .modal-header h3').text(title);
     $('#confirmation-modal .modal-body').empty().append("<img class='modal-loading' src='/assets/spinner.gif'>");
     $('#confirmation-modal').modal({show: "true", backdrop: "static"});

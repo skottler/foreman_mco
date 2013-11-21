@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       post :submit_command, :on => :collection
     end
 
+    resources :command_histories, :only => [:index] do
+      get :auto_complete_search, :on => :collection
+    end
     resources :command_statuses, :only => [:update]
   end
 end
